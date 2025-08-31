@@ -84,7 +84,7 @@ const About: React.FC = () => {
                 <div className="achievement-item">
                   <div className="achievement-icon">🏆</div>
                   <div className="achievement-content">
-                    <h7>Soonami Winner</h7>
+                    <h6>Soonami Winner</h6>
                     <p>Won Soonami Venturethon 7 - Now part of Soonami Cohort 7</p>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const About: React.FC = () => {
                 <div className="achievement-item">
                   <div className="achievement-icon">🎖️</div>
                   <div className="achievement-content">
-                    <h7>NEAR Protocol</h7>
+                    <h6>NEAR Protocol</h6>
                     <p>Selected for NEAR Protocol Rewards Cohort 1</p>
                   </div>
                 </div>

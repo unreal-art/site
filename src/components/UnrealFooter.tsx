@@ -1,5 +1,4 @@
 import { Hexagon, Github, Twitter } from "lucide-react"
-import { Footer } from "@/components/ui/footer"
 
 function UnrealFooter() {
   return (
