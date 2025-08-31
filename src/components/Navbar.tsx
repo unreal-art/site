@@ -1,26 +1,38 @@
-import { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
-import { cn } from "@/lib/utils";
+import { useState } from "react"
+import {
+  HoveredLink,
+  Menu,
+  MenuItem,
+  ProductItem,
+} from "@/components/ui/navbar-menu"
+import { cn } from "@/lib/utils"
 
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-2" />
     </div>
-  );
+  )
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(null)
   return (
     <div
-      className={cn("fixed inset-x-0 padding-max-w-4xl mx-auto z-[300]", className)}
+      className={cn(
+        "fixed inset-x-0 padding-max-w-4xl mx-auto z-[100]",
+        className
+      )}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <div className="flex flex-col space-y-2 text-sm min-w-[200px]">
-            <HoveredLink href="#mission" setActive={setActive}>Mission</HoveredLink>
-            <HoveredLink href="#about" setActive={setActive}>About & Backers</HoveredLink>
+            <HoveredLink href="#mission" setActive={setActive}>
+              Mission
+            </HoveredLink>
+            <HoveredLink href="#about" setActive={setActive}>
+              About & Backers
+            </HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Platforms">
@@ -57,15 +69,29 @@ function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Community">
           <div className="flex flex-col space-y-2 text-sm min-w-[200px]">
-            <HoveredLink href="https://discord.gg/Tug7uKCf" setActive={setActive}>Discord</HoveredLink>
-            <HoveredLink href="https://t.me/ideomind" setActive={setActive}>Telegram</HoveredLink>
-            <HoveredLink href="https://x.com/ideomind" setActive={setActive}>Twitter</HoveredLink>
-            <HoveredLink href="https://github.com/unreal-art" setActive={setActive}>GitHub</HoveredLink>
+            <HoveredLink
+              href="https://discord.gg/Tug7uKCf"
+              setActive={setActive}
+            >
+              Discord
+            </HoveredLink>
+            <HoveredLink href="https://t.me/ideomind" setActive={setActive}>
+              Telegram
+            </HoveredLink>
+            <HoveredLink href="https://x.com/ideomind" setActive={setActive}>
+              Twitter
+            </HoveredLink>
+            <HoveredLink
+              href="https://github.com/unreal-art"
+              setActive={setActive}
+            >
+              GitHub
+            </HoveredLink>
           </div>
         </MenuItem>
       </Menu>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
