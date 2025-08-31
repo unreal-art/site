@@ -14,7 +14,7 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed inset-x-0 padding-max-w-4xl mx-auto z-[100]", className)}
+      className={cn("fixed inset-x-0 padding-max-w-4xl mx-auto z-[300]", className)}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
@@ -60,7 +60,7 @@ function Navbar({ className }: { className?: string }) {
             <HoveredLink href="https://discord.gg/Tug7uKCf" setActive={setActive}>Discord</HoveredLink>
             <HoveredLink href="https://t.me/ideomind" setActive={setActive}>Telegram</HoveredLink>
             <HoveredLink href="https://x.com/ideomind" setActive={setActive}>Twitter</HoveredLink>
-            <HoveredLink href="https://github.com/unreal" setActive={setActive}>GitHub</HoveredLink>
+            <HoveredLink href="https://github.com/unreal-art" setActive={setActive}>GitHub</HoveredLink>
           </div>
         </MenuItem>
       </Menu>

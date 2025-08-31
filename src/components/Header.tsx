@@ -39,7 +39,8 @@ const Header: React.FC<HeaderProps> = ({ onScroll }) => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
               onClick={onScroll}
-              className="group relative inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:border-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              className="group relative inline-flex items-center justify-center px-35 py-18 border-2 border-white/30 text-white font-semibold rounded-full hover:border-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              style={{ padding: '18px 35px' }}
             >
               <span className="mr-3">Scroll Down</span>
               <svg 
@@ -52,22 +53,17 @@ const Header: React.FC<HeaderProps> = ({ onScroll }) => {
               </svg>
             </button>
 
-            <a 
-              href="https://art.unreal.art" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center px-8 py-4 bg-[#8788f4] text-white font-semibold rounded-2xl hover:bg-[#7677e3] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <span className="mr-3">Launch App</span>
-              <svg 
-                className="w-12 h-12 transition-transform group-hover:translate-x-1" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
+            <div className="btn btn-primary">
+              <a href="https://art.unreal.art" target="_blank" rel="noopener noreferrer" className="btn-click">
+                <div className="btn-content"><span>Launch App</span></div>
+                <div className="btn-arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <polyline points="14 19 21 12 14 5" fill="none" stroke="#000" strokeMiterlimit="10"/>
+                    <line x1="21" y1="12" x2="2" y2="12" fill="none" stroke="#000" strokeMiterlimit="10"/>
+                  </svg>
+                </div>
+              </a>
+            </div>
           </div>
 
           {/* Scroll Indicator */}
