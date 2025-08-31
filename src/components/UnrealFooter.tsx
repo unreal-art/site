@@ -40,7 +40,7 @@ function UnrealFooter() {
               gap: '1.5rem'
             }}>
               <a
-                href="https://twitter.com"
+                href="https://x.com/ideomind"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -66,7 +66,7 @@ function UnrealFooter() {
                 <Twitter size={20} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/unreal-art"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -185,7 +185,7 @@ function UnrealFooter() {
               lineHeight: '1.6',
               justifySelf: 'start'
             }}>
-              <div>© 2024 Unreal</div>
+              <div>© 2025 unreal-art</div>
               <div style={{ marginTop: '0.5rem' }}>All rights reserved</div>
             </div>
           </div>
