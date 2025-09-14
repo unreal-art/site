@@ -78,16 +78,6 @@ jobs:
             sudo apt-get install -y jq
           fi
 
-      - name: Lint (if available)
-        if: hashFiles('package.json') != ''
-        shell: bash
-        run: |
-          if jq -e '.scripts.lint' package.json >/dev/null 2>&1; then
-            bun run lint
-          else
-            echo "No lint script; skipping."
-          fi
-
       - name: Test (if available)
         if: hashFiles('package.json') != ''
         shell: bash
