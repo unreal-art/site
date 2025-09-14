@@ -1,0 +1,14 @@
+{
+  "name": "Unreal AI",
+  "description": "OpenAI-compatible AI vending machine and art studio with transparent on-chain, pay-per-use billing. Try text & image models now.",
+  "launch_path": "/index.html",
+  "icons": {
+    "32": "assets/favicon-32x32.png",
+    "16": "assets/favicon-16x16.png"
+  },
+  "developer": {
+    "name": "Hiro",
+    "url": "https://unreal.art"
+  },
+  "default_locale": "en"
+}
