@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Unreal AI",
+  "short_name": "Unreal",
   "icons": [
     {
       "src": "/assets/web-app-manifest-192x192.png",
@@ -15,7 +15,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#080101",
-  "background_color": "#030604",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#0a0a0a",
+  "background_color": "#0a0a0a",
   "display": "standalone"
 }
