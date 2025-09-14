@@ -2,7 +2,7 @@
 
  OpenAI-compatible, on-chain metered AI compute network. Unreal unifies access to AI models, provides transparent on-chain receipts for every call, and lets independent datacenters monetize capacity under common meters and SLAs.
 
- • Products: Studio, Console, OpenAI-compatible API, and a ranked provider marketplace.  
+ • Products: OpenAI-compatible API and Console for enterprises, an Art platform for creators, and a ranked provider marketplace.  
  • Billing: Deterministic metering with UNREAL-denominated rates across input/output tokens and media units (images, video, audio).  
  • Mission: Make AI feel like a vending machine—choose a model, pay for exactly what meters record, and receive auditable receipts.
 
@@ -19,11 +19,10 @@
 
  ## Product Surface
 
- - Studio: Project-based workspace for text, images, video, embeddings, and agents with versioning and collaboration.
- - Console: Wallet-connected key management, developer airdrops, and business registration for managed access.
  - OpenAI-compatible API: One-line migration from OpenAI SDKs with standardized metering and settlement in UNREAL.
+ - Console: Wallet-connected key management, developer airdrops, and business registration for managed access.
+ - Art platform: High-speed surface that proved UX and supply; now a funnel and live showcase for network latency and cost.
  - Marketplace: Ranked provider directory with regional routing and lanes (Priority vs Flex) tied to SLA performance.
- - Art: High-speed surface that proved UX and supply; now a funnel and live showcase for latency and cost.
 
  ## Pricing & Metering (T1)
 
