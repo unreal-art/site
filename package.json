@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "preview": "vite preview",
-    "favicon:check": "realfavicon check 3000"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

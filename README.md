@@ -1,115 +1,119 @@
 # Unreal AI
 
- OpenAI-compatible, on-chain metered AI compute network. Unreal unifies access to AI models, provides transparent on-chain receipts for every call, and lets independent datacenters monetize capacity under common meters and SLAs.
+OpenAI-compatible, on-chain metered AI compute network. Unreal unifies access to AI models, provides transparent on-chain receipts for every call, and lets independent datacenters monetize capacity under common meters and SLAs.
 
- • Products: OpenAI-compatible API and Console for enterprises, an Art platform for creators, and a ranked provider marketplace.  
+• Products: OpenAI-compatible API and Console for enterprises, an Art platform for creators, and a ranked provider marketplace.  
  • Billing: Deterministic metering with UNREAL-denominated rates across input/output tokens and media units (images, video, audio).  
  • Mission: Make AI feel like a vending machine—choose a model, pay for exactly what meters record, and receive auditable receipts.
 
- Refer to the founding backstory in `aidocs/info-about-founding/backstory.md` for deeper context.
+Refer to the founding backstory in `aidocs/info-about-founding/backstory.md` for deeper context.
 
- ---
+---
 
- ## Why Unreal
+## Why Unreal
 
- - Unified access: One OpenAI-compatible interface across multiple models and providers.
- - Verifiable billing: Each inference produces an on-chain receipt containing cryptographic usage meters.
- - Predictable pricing: Governance-set bands keep rates sustainable for providers and transparent for buyers.
- - Enterprise ready: Keys, wallets, project-centric workflows, audit-friendly receipts.
+- Unified access: One OpenAI-compatible interface across multiple models and providers.
+- Verifiable billing: Each inference produces an on-chain receipt containing cryptographic usage meters.
+- Predictable pricing: Governance-set bands keep rates sustainable for providers and transparent for buyers.
+- Enterprise ready: Keys, wallets, project-centric workflows, audit-friendly receipts.
 
- ## Product Surface
+## Product Surface
 
- - OpenAI-compatible API: One-line migration from OpenAI SDKs with standardized metering and settlement in UNREAL.
- - Console: Wallet-connected key management, developer airdrops, and business registration for managed access.
- - Art platform: High-speed surface that proved UX and supply; now a funnel and live showcase for network latency and cost.
- - Marketplace: Ranked provider directory with regional routing and lanes (Priority vs Flex) tied to SLA performance.
+- OpenAI-compatible API: One-line migration from OpenAI SDKs with standardized metering and settlement in UNREAL.
+- Console: Wallet-connected key management, developer airdrops, and business registration for managed access.
+- Art platform: High-speed surface that proved UX and supply; now a funnel and live showcase for network latency and cost.
+- Marketplace: Ranked provider directory with regional routing and lanes (Priority vs Flex) tied to SLA performance.
 
- ## Pricing & Metering (T1)
+## Pricing & Metering (T1)
 
- - Token meters: UNREAL per 1M input tokens (R_in) and per 1M output tokens (R_out).
- - Media meters: Clearly defined units for images, video, and audio. Rates validated against provider costs.
- - Settlement: Prepay in UNREAL or top up via fiat/stablecoin bridges; every call writes a verifiable on-chain receipt.
+- Token meters: UNREAL per 1M input tokens (R_in) and per 1M output tokens (R_out).
+- Media meters: Clearly defined units for images, video, and audio. Rates validated against provider costs.
+- Settlement: Prepay in UNREAL or top up via fiat/stablecoin bridges; every call writes a verifiable on-chain receipt.
 
- ## Architecture (High Level)
+## Architecture (High Level)
 
- - Router logs deterministic meters per call and writes receipts (e.g., Merkle-hashed usage) on-chain.
- - Provider program validates costs and SLAs; marketplace placement rewards reliability over raw price.
- - Governance oversees pricing bands, dispute rules, and SLA definitions.
+- Router logs deterministic meters per call and writes receipts (e.g., Merkle-hashed usage) on-chain.
+- Provider program validates costs and SLAs; marketplace placement rewards reliability over raw price.
+- Governance oversees pricing bands, dispute rules, and SLA definitions.
 
- ## Quickstart (This Repository)
+## Quickstart (This Repository)
 
- This repo contains the Unreal website (React + TypeScript + Vite).
+This repo contains the Unreal website (React + TypeScript + Vite).
 
- Prerequisites
- - Node.js 20+ and npm 9+ (or newer)
+Prerequisites
 
- Install and run
- ```bash
- npm install
- npm run dev
- ```
+- bun 1.2.5+ (or newer)
 
- Build and preview
- ```bash
- npm run build
- npm run preview
- ```
+Install and run
 
- Project layout
- - `src/` — React app source
- - `public/` — static assets
- - `aidocs/` — internal docs, including the founding backstory
+```bash
+bun install
+bun run dev
+```
 
- ## Using the OpenAI-Compatible API
+Build and preview
 
- Unreal speaks the OpenAI API so you can migrate with a baseURL change. Example (Node):
+```bash
+bun run build
+bun run preview
+```
 
- ```ts
- import OpenAI from 'openai'
+Project layout
 
- const client = new OpenAI({
-   baseURL: process.env.UNREAL_API_BASE, // e.g. https://api.unreal.example/v1
-   apiKey: process.env.UNREAL_API_KEY,
- })
+- `src/` — React app source
+- `public/` — static assets
+- `aidocs/` — internal docs, including the founding backstory
 
- const response = await client.chat.completions.create({
-   model: 'gpt-4o-mini',
-   messages: [
-     { role: 'system', content: 'You are a helpful assistant.' },
-     { role: 'user', content: 'Hello, Unreal!' },
-   ],
- })
+## Using the OpenAI-Compatible API
 
- console.log(response.choices[0]?.message?.content)
- ```
+Unreal speaks the OpenAI API so you can migrate with a baseURL change. Example (Node):
 
- Or via cURL:
+```ts
+import OpenAI from "openai"
 
- ```bash
- curl -X POST "$UNREAL_API_BASE/chat/completions" \
-   -H "Authorization: Bearer $UNREAL_API_KEY" \
-   -H "Content-Type: application/json" \
-   -d '{
-     "model": "gpt-4o-mini",
-     "messages": [
-       {"role": "user", "content": "Hello, Unreal!"}
-     ]
-   }'
- ```
+const client = new OpenAI({
+  baseURL: process.env.UNREAL_API_BASE, // e.g. https://api.unreal.example/v1
+  apiKey: process.env.UNREAL_API_KEY,
+})
 
- Note: Actual models, lanes, and rate cards are subject to governance bands and provider availability.
+const response = await client.chat.completions.create({
+  model: "gpt-4o-mini",
+  messages: [
+    { role: "system", content: "You are a helpful assistant." },
+    { role: "user", content: "Hello, Unreal!" },
+  ],
+})
 
- ## Roadmap (At a Glance)
+console.log(response.choices[0]?.message?.content)
+```
 
- - Launch T1 metered billing with cryptographic receipts and high-RPM enterprise lanes.
- - Onboard 20–50 providers with validated rate cards; open the ranked marketplace with regional routing.
- - Expand multimodal coverage and activate governance for pricing bands and dispute workflows.
+Or via cURL:
 
- ## Contributing
+```bash
+curl -X POST "$UNREAL_API_BASE/chat/completions" \
+  -H "Authorization: Bearer $UNREAL_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [
+      {"role": "user", "content": "Hello, Unreal!"}
+    ]
+  }'
+```
 
- We welcome issues and PRs. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for branching, commits, linting, and PR guidelines.
+Note: Actual models, lanes, and rate cards are subject to governance bands and provider availability.
 
- ## Docs
+## Roadmap (At a Glance)
 
- - Founding backstory: `aidocs/info-about-founding/backstory.md`
- - Additional internal docs live under `aidocs/`.
+- Launch T1 metered billing with cryptographic receipts and high-RPM enterprise lanes.
+- Onboard 20–50 providers with validated rate cards; open the ranked marketplace with regional routing.
+- Expand multimodal coverage and activate governance for pricing bands and dispute workflows.
+
+## Contributing
+
+We welcome issues and PRs. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for branching, commits, linting, and PR guidelines.
+
+## Docs
+
+- Founding backstory: `aidocs/info-about-founding/backstory.md`
+- Additional internal docs live under `aidocs/`.
