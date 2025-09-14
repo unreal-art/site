@@ -38,7 +38,7 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Platforms">
           <div className="text-sm grid grid-cols-2 gap-4 max-w-[800px]">
             <ProductItem
-              title="Open AI"
+              title="Unreal AI docs"
               href="https://docs.unreal.art"
               src="/static/logos/unreal-ai-logo/unreal-ai-rocket.webp"
               description="Open AI compatible API router with transparent on-chain metered billing"
