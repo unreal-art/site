@@ -38,10 +38,17 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Platforms">
           <div className="text-sm grid grid-cols-2 gap-4 max-w-[800px]">
             <ProductItem
+              title="Open AI"
+              href="https://docs.unreal.art"
+              src="/static/logos/unreal-ai-logo/unreal-ai-rocket.webp"
+              description="Open AI compatible API router with transparent on-chain metered billing"
+              setActive={setActive}
+            />
+            <ProductItem
               title="Console"
               href="https://console.unreal.art"
               src="/static/logos/unreal-ai-logo/unreal-ai-rocket.webp"
-              description="Main AI console for advanced operations"
+              description="Your web3 console for managing Unreal AI"
               setActive={setActive}
             />
             <ProductItem
@@ -52,16 +59,9 @@ function Navbar({ className }: { className?: string }) {
               setActive={setActive}
             />
             <ProductItem
-              title="Documentation"
-              href="https://docs.unreal.art"
-              src="/media/home/docs-icon.png"
-              description="Comprehensive guides and API docs"
-              setActive={setActive}
-            />
-            <ProductItem
-              title="Tokenomics"
+              title="Whitepaper"
               href="https://tokenomics.unreal.art"
-              src="/media/home/tokenomics-icon.png"
+              src="/media/home/whitepaper.png"
               description="Token economics and utility details"
               setActive={setActive}
             />
