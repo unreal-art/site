@@ -40,7 +40,7 @@ function Navbar({ className }: { className?: string }) {
             <ProductItem
               title="Unreal AI docs"
               href="https://docs.unreal.art"
-              src="/static/logos/unreal-ai-logo/unreal-ai-rocket.webp"
+              src="/media/home/unreal-docs.png"
               description="Open AI compatible API router with transparent on-chain metered billing"
               setActive={setActive}
             />
