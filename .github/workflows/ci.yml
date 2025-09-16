@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Lint, Typecheck, Build
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Show versions
+        run: |
+          bun --version
+          node --version || true
+
+      - name: Cache Bun cache and node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb', 'package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        if: ${{ hashFiles('package.json') != '' || hashFiles('bun.lockb') != '' }}
+        shell: bash
+        run: |
+          if [[ -f bun.lockb ]]; then
+            echo "bun.lockb found -> using frozen lockfile"
+            bun install --frozen-lockfile
+          elif [[ -f package.json ]]; then
+            echo "bun.lockb not found -> running normal install"
+            bun install
+          else
+            echo "No manifest (bun.lockb or package.json) found; skipping install."
+            exit 0
+          fi
+
+      - name: Typecheck (if tsconfig present)
+        if: ${{ hashFiles('tsconfig.json') != '' || hashFiles('tsconfig.*.json') != '' }}
+        shell: bash
+        run: |
+          bunx --yes tsc --noEmit
+
+      - name: Ensure jq
+        shell: bash
+        run: |
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y jq
+          fi
+
+      - name: Lint (if available)
+        continue-on-error: true
+        if: hashFiles('package.json') != ''
+        shell: bash
+        run: |
+          if jq -e '.scripts.lint' package.json >/dev/null 2>&1; then
+            bun run lint
+          else
+            echo "No lint script; skipping."
+          fi
+
+      - name: Test (if available)
+        if: hashFiles('package.json') != ''
+        shell: bash
+        run: |
+          if jq -e '.scripts.test' package.json >/dev/null 2>&1; then
+            bun run test
+          else
+            echo "No test script; skipping."
+          fi
+
+      - name: Build (if available)
+        if: hashFiles('package.json') != ''
+        shell: bash
+        run: |
+          if jq -e '.scripts.build' package.json >/dev/null 2>&1; then
+            bun run build
+          else
+            echo "No build script; skipping."
+          fi
+
+      - name: Upload build artifact (dist)
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: |
+            dist
+          if-no-files-found: ignore
+          retention-days: 7

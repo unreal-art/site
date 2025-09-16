@@ -24,7 +24,7 @@ const About: React.FC = () => {
           <div className="col">
             <div className="about-content">
               <div className="about-intro">
-                <h4>The World's First Open AI Studio Powered by Crypto</h4>
+                <h4>The World's First OpenAI‑Compatible AI Network Powered by Crypto</h4>
                 <p className="about-description">
                   We're building the future of AI accessibility through blockchain technology. One platform, one token, infinite possibilities.
                 </p>

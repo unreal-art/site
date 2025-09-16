@@ -141,12 +141,19 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, setActive, ...rest }: any) => {
+type HoveredLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  setActive?: (item: string | null) => void;
+};
+
+export const HoveredLink = ({ children, setActive, onClick, ...rest }: HoveredLinkProps) => {
   return (
     <div className="menu-item-wrapper">
       <a
         {...rest}
-        onClick={() => setActive && setActive(null)}
+        onClick={(e) => {
+          onClick?.(e);
+          if (setActive) setActive(null);
+        }}
         className="menu-item-link"
       >
         <span className="menu-item-text">{children}</span>
