@@ -56,7 +56,7 @@ const IntroSection: React.FC = () => {
             </div>
             <div className="col-row">
               <div className="btn btn-primary">
-                <a href="https://app.unreal.art" className="btn-click">
+                <a href="https://app.ideomind.org" className="btn-click">
                   <div className="btn-content">
                     <span>Launch App</span>
                   </div>

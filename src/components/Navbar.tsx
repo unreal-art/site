@@ -39,28 +39,28 @@ function Navbar({ className }: { className?: string }) {
           <div className="text-sm grid grid-cols-2 gap-4 max-w-[800px]">
             <ProductItem
               title="Unreal AI docs"
-              href="https://docs.unreal.art"
+              href="https://docs.ideomind.org"
               src="/media/home/unreal-docs.png"
               description="Open AI compatible API router with transparent on-chain metered billing"
               setActive={setActive}
             />
             <ProductItem
               title="Console"
-              href="https://console.unreal.art"
+              href="https://console.ideomind.org"
               src="/static/logos/unreal-ai-logo/unreal-ai-rocket.webp"
               description="Your web3 console for managing Unreal AI"
               setActive={setActive}
             />
             <ProductItem
               title="Art Platform"
-              href="https://art.unreal.art"
+              href="https://art.ideomind.org"
               src="/static/logos/unreal-art-platform/unreal-art-small-logo-white.png"
               description="Open AI art creation platform"
               setActive={setActive}
             />
             <ProductItem
               title="Whitepaper"
-              href="https://tokenomics.unreal.art"
+              href="https://tokenomics.ideomind.org"
               src="/media/home/whitepaper.png"
               description="Token economics and utility details"
               setActive={setActive}
